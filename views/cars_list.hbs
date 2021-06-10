@@ -1,0 +1,37 @@
+<section class="card">
+    <div class="card-header">
+        <h4 class="card-title ">Dashboard</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col" class="text-center">Driver Name</th>
+                    <th scope="col" class="text-center">Status</th>
+                    <th scope="col" class="text-center">Edit</th>
+                    <th scope="col" class="text-center">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {{#each data}}
+                    <td class="text-center">{{_id}}</td>
+                    <td class="text-center">{{driver_name}}</td>
+                    <td class="text-center">{{status}}</td>
+                    <td class="text-center"><a href="cars/edit/{{_id}}" class="btn btn-info">
+                    <i class="fa fa-address-card"></i></a></td>
+                    <td class="text-center">
+                        <form action="/cars/{{_id}}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger">
+                             <i>DEL</i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

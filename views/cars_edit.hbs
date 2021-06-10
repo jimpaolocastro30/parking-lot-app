@@ -1,0 +1,34 @@
+<section class="card">
+    <div class="card-header">
+        <h4 class="card-title">Edit</h4>
+    </div>
+    <div class="card-body">
+        <form action="/cars/{{data._id}}" method="POST">
+        <input type="hidden" value="PUT" name="_method">
+
+        <div class="form-group">
+            <input type="text" name="driver_name" class="form-control" placeholder="Driver Name" value="{{data.driver_name}}">
+        </div>
+        <div class="form-group">
+            <input type="text" name="license_plate" class="form-control" placeholder="License Plate" value="{{data.license_plate}}">
+        </div>
+        <div class="form-group">
+            <select name="status" id="" class="form-control">
+            {{#equals data.status 'IN'}}
+                <option value="IN" selected>INSIDE</option>
+                <option value="OUT">OUTSIDE</option>
+                <option value="-1">Choose an option</option>
+            {{/equals}}
+            {{#equals data.status 'OUT'}}
+                <option value="OUT" selected>OUTSIDE</option>
+                <option value="IN">INSIDE</option>
+                <option value="-1">Choose an option</option>
+            {{/equals}}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Edit" class="btn btn-success">
+        </div>
+        </form>
+    </div>
+</section>
